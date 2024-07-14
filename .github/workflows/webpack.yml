@@ -30,7 +30,8 @@ jobs:
         run: |
           git config --global user.email "sid12g@naver.com"
           git config --global user.name "sid12g"
-          git checkout -B gh-pages origin/gh-pages  # 원격의 gh-pages 브랜치를 로컬에 생성하고 체크아웃합니다
+          git fetch origin gh-pages:gh-pages  # 원격의 gh-pages 브랜치를 가져옵니다
+          git checkout gh-pages
           mv dist/* ./
           git add .
           git commit -m "Deploy to GitHub Pages"
