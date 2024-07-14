@@ -28,9 +28,14 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Configure git
+        run: |
+          git config --global user.email "sid12g@naver.com"
+          git config --global user.name "Sungmin Cho"
+
       - name: Deploy to GitHub Pages
         run: |
           yarn global add gh-pages
           gh-pages -d dist
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
