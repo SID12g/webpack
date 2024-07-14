@@ -17314,7 +17314,7 @@ function component() {
   var element = document.createElement("div");
 
   /* lodash is required for the next line to work */
-  element.innerHTML = lodash__WEBPACK_IMPORTED_MODULE_0___default().join(["Hello", "webpack"], " ");
+  element.innerHTML = lodash__WEBPACK_IMPORTED_MODULE_0___default().join(["Hello", "Webpack"], " ");
 
   return element;
 }
