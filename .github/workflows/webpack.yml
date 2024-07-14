@@ -34,8 +34,12 @@ jobs:
           git config --global user.name "sid12g"
 
       - name: Deploy to GitHub Pages
-        run: |
-          yarn global add gh-pages
-          gh-pages -d dist
         env:
           GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_TOKEN }}
+        run: |
+          git init
+          git remote add origin https://x-access-token:${{ secrets.GH_ACTIONS_TOKEN }}@github.com/${{ github.repository }}.git
+          git checkout -b gh-pages
+          git add dist
+          git commit -m "Deploy to GitHub Pages"
+          git push -f origin gh-pages
